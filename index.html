@@ -110,7 +110,7 @@ p { margin: 0; }
 .copied { font-family: var(--f-mono); font-size: var(--step--1); color: var(--ok); align-self: center; min-height: 1em; }
 
 /* ---------- Spec strip ---------- */
-.spec { padding-block: 34px 10px; }
+.spec { padding-block: 56px 10px; }
 .spec-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; margin-bottom: 14px; }
 .spec-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
 .spec-cell { padding: 16px 14px 18px 0; border-bottom: 1px solid var(--rule); }
@@ -173,6 +173,7 @@ section.block { padding-block: 64px 0; }
 .principle { padding: 22px 20px 26px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 8px; align-content: start; }
 .principle:not(:nth-child(3n+1)) { padding-left: 20px; border-left: 1px solid var(--rule); }
 .principle p { font-size: 0.97rem; }
+.principle .stack { margin-top: 4px; }
 .principle .proof { font-size: 0.88rem; color: var(--muted); }
 
 /* ---------- Tools ---------- */
@@ -265,17 +266,56 @@ footer { margin-top: 28px; font-size: 0.85rem; color: var(--muted); display: fle
     </figure>
   </header>
 
+
+  <section class="block skills-block" aria-labelledby="skills-title">
+    <div class="block-head">
+      <span class="eyebrow">Kompetenzen</span>
+      <div>
+        <h2 id="skills-title">Was ich mitbringe</h2>
+        <p>Ich verbinde Fachseite und Technik: Ich verstehe, was der Vertrieb oder das Lager braucht, und übersetze es in Aufgaben, die Entwickler umsetzen und die man prüfen kann.</p>
+      </div>
+    </div>
+    <div class="principles">
+      <div class="principle">
+        <h3>Anforderungen &amp; Lastenhefte</h3>
+        <p>Fachliche Wünsche in klare, prüfbare Aufgaben übersetzen: mit Testszenarien, Abnahmekriterien und Aufwandsschätzung vor dem Start.</p>
+      </div>
+      <div class="principle">
+        <h3>Datenintegration</h3>
+        <p>Daten zwischen ERP, Shop und internen Anwendungen bewegen, mit Prüfregeln gegen unvollständige oder fehlerhafte Importe.</p>
+        <div class="stack"><span>JTL-Wawi</span><span>WooCommerce</span><span>CSV/Excel</span><span>SFTP</span><span>REST</span></div>
+      </div>
+      <div class="principle">
+        <h3>Datenqualität &amp; Kataloge</h3>
+        <p>Artikelnummern normalisieren, Dubletten finden, Kategorien und Filter aufbauen, Ergebnisse an Stichproben messen.</p>
+      </div>
+      <div class="principle">
+        <h3>Automatisierung mit KI</h3>
+        <p>Wiederkehrende Handarbeit ersetzen: Bilderkennung, Telegram-Bots, n8n-Abläufe. Umsetzung mit KI-Coding-Werkzeugen unter meiner Führung.</p>
+        <div class="stack"><span>Python</span><span>FastAPI</span><span>Gemini API</span><span>n8n</span></div>
+      </div>
+      <div class="principle">
+        <h3>Dienstleister steuern</h3>
+        <p>Agenturen und Entwickler führen: Aufgaben stellen, Schätzungen prüfen, abnehmen, Fehler melden, Status und Termine im Blick halten.</p>
+      </div>
+      <div class="principle">
+        <h3>E-Commerce aus der Praxis</h3>
+        <p>Drei eigene Onlineshops betrieben. Ich kenne Shopstruktur, Filter, Versandlogik und die Folgen für die Suchmaschine aus eigener Erfahrung.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="spec" aria-labelledby="spec-title">
     <div class="spec-head">
-      <span class="eyebrow" id="spec-title">Aus dem laufenden Betrieb · ALNA GmbH, Ersatzteile für Landtechnik</span>
-      <span class="eyebrow">Stand 10/2026</span>
+      <span class="eyebrow" id="spec-title">In Zahlen · ALNA GmbH, Ersatzteile für Landtechnik</span>
+      <span class="eyebrow">Gerundet</span>
     </div>
     <div class="spec-grid">
-      <div class="spec-cell"><div class="num">1,48 <small>Mio.</small></div><p>Herstellerpreiszeilen im internen B2B-Preisportal</p></div>
+      <div class="spec-cell"><div class="num">2 <small>Mio.+</small></div><p>Datensätze im internen B2B-Portal: Preise, Alternativen, Zolltarife</p></div>
       <div class="spec-cell"><div class="num">15 <small>Min.</small></div><p>Takt der ERP-Datenübernahme, mit Prüfung vor jeder Aktualisierung</p></div>
-      <div class="spec-cell"><div class="num">9.000</div><p>Artikel in eine neue Shopstruktur mit 11 Haupt- und 35 Unterkategorien eingeordnet</p></div>
-      <div class="spec-cell"><div class="num">97,5 <small>%</small></div><p>Genauigkeit der Maschinenzuordnung nach der Überarbeitung (erster Ansatz: 29 % Fehler)</p></div>
-      <div class="spec-cell"><div class="num">240</div><p>echte Frachtrechnungen als Grundlage des Versandkostenmodells</p></div>
+      <div class="spec-cell"><div class="num">9.000<small>+</small></div><p>Artikel in eine neue Shopstruktur mit rund 45 Kategorien eingeordnet</p></div>
+      <div class="spec-cell"><div class="num">97 <small>%+</small></div><p>Genauigkeit der Maschinenzuordnung nach der Überarbeitung (erster Ansatz: fast 30 % Fehler)</p></div>
+      <div class="spec-cell"><div class="num">200<small>+</small></div><p>echte Frachtrechnungen als Grundlage des Versandkostenmodells</p></div>
     </div>
   </section>
 
@@ -305,7 +345,7 @@ footer { margin-top: 28px; font-size: 0.85rem; color: var(--muted); display: fle
         <li><span class="k">Ohne führende Nullen</span><span class="v" id="s3"></span></li>
         <li class="final"><span class="k">Suchschlüssel</span><span class="v" id="s4"></span></li>
       </ol>
-      <p class="demo-note">Vereinfachte Darstellung. Im Portal gelten zusätzlich eigene Regeln je Hersteller, Ersatznummernketten und eine unscharfe Suche; daraus entstehen rund 76.000 Suchschlüssel.</p>
+      <p class="demo-note">Vereinfachte Darstellung. Im Portal gelten zusätzlich eigene Regeln je Hersteller, Ersatznummernketten und eine unscharfe Suche; daraus entstehen über 70.000 Suchschlüssel.</p>
     </div>
   </section>
 
@@ -368,15 +408,15 @@ footer { margin-top: 28px; font-size: 0.85rem; color: var(--muted); display: fle
       <article class="project">
         <div class="project-meta"><span class="pid">PRJ-04</span><span class="pill done">Abgeschlossen</span></div>
         <div class="project-body">
-          <h3>Neue Shopstruktur für 9.000 Artikel</h3>
+          <h3>Neue Shopstruktur für über 9.000 Artikel</h3>
           <dl class="pbr">
             <dt>Ausgangslage</dt><dd>Der Shop war nach Maschinenmarken gegliedert: drei Kategorien für rund 6.000 Artikel. Wer ein Teil suchte, musste zuerst die Marke kennen.</dd>
-            <dt>Mein Beitrag</dt><dd>Struktur nach Teiletyp entworfen (11 Haupt-, 35 Unterkategorien), Marke als Filter; drei Filter definiert; Klassifikation organisiert und vor jedem Import maschinell geprüft; Weiterleitungsplan (301) vor dem Abschalten der alten Struktur.</dd>
-            <dt>Ergebnis</dt><dd>Vier Kategorieseiten nach Maschinentyp, die jahrelang leer waren, zeigen jetzt jeweils 3.000 bis 6.700 Artikel.</dd>
+            <dt>Mein Beitrag</dt><dd>Struktur nach Teiletyp entworfen (rund 45 Haupt- und Unterkategorien), Marke als Filter; drei Filter definiert; Klassifikation organisiert und vor jedem Import maschinell geprüft; Weiterleitungsplan (301) vor dem Abschalten der alten Struktur.</dd>
+            <dt>Ergebnis</dt><dd>Vier Kategorieseiten nach Maschinentyp, die jahrelang leer waren, zeigen jetzt jeweils mehrere tausend Artikel.</dd>
           </dl>
           <div class="callout">
-            <div class="pair"><span class="bad">29 % Fehler</span><span>→ 97,5 % Genauigkeit</span></div>
-            <p>Der erste Ansatz für das Merkmal „passt zu Maschinentyp“ fiel in der Stichprobe durch. Ursache: Die Datenquelle unterschied nicht zwischen „wird zusammen erwähnt“ und „passt nur zu“. Nach der Neuformulierung: 97,5 % Genauigkeit bei 78 % Abdeckung des Katalogs.</p>
+            <div class="pair"><span class="bad">~30 % Fehler</span><span>→ über 97 % Genauigkeit</span></div>
+            <p>Der erste Ansatz für das Merkmal „passt zu Maschinentyp“ fiel in der Stichprobe durch. Ursache: Die Datenquelle unterschied nicht zwischen „wird zusammen erwähnt“ und „passt nur zu“. Nach der Neuformulierung: über 97 % Genauigkeit bei rund drei Vierteln Abdeckung des Katalogs.</p>
           </div>
           <div class="stack"><span>WooCommerce</span><span>JTL-Connector</span><span>JTL-Ameise</span><span>CSV</span></div>
         </div>
@@ -388,8 +428,8 @@ footer { margin-top: 28px; font-size: 0.85rem; color: var(--muted); display: fle
           <h3>Versandkosten aus echten Rechnungen</h3>
           <dl class="pbr">
             <dt>Ausgangslage</dt><dd>Die Versandkosten im Shop beruhten auf Schätzungen.</dd>
-            <dt>Mein Beitrag</dt><dd>240 Rechnungen des Spediteurs aus einem halben Jahr und die Auftragsdaten aus dem ERP ausgewertet. Daraus ein Lastenheft für die Agentur: Tariftabellen nach Gewicht (Inland) und je Kilogramm für sieben Auslandsziele, vier Versandarten mit Regeln nach Gewicht und Maß, Grenze für kostenlosen Versand, Aufteilung schwerer Aufträge.</dd>
-            <dt>Ergebnis</dt><dd>Für Ziele ohne Tarifdaten (rund 32 % der bisherigen Aufträge) wird die Bestellung nicht blockiert, sondern manuell berechnet. Tarife liegen mit Gültigkeitsdatum in der Datenbank, die vierteljährliche Pflege braucht kein neues Release.</dd>
+            <dt>Mein Beitrag</dt><dd>Über 200 Rechnungen des Spediteurs aus einem halben Jahr und die Auftragsdaten aus dem ERP ausgewertet. Daraus ein Lastenheft für die Agentur: Tariftabellen nach Gewicht (Inland) und je Kilogramm für sieben Auslandsziele, vier Versandarten mit Regeln nach Gewicht und Maß, Grenze für kostenlosen Versand, Aufteilung schwerer Aufträge.</dd>
+            <dt>Ergebnis</dt><dd>Für Ziele ohne Tarifdaten (rund ein Drittel der bisherigen Aufträge) wird die Bestellung nicht blockiert, sondern manuell berechnet. Tarife liegen mit Gültigkeitsdatum in der Datenbank, die vierteljährliche Pflege braucht kein neues Release.</dd>
           </dl>
         </div>
       </article>
@@ -425,7 +465,7 @@ footer { margin-top: 28px; font-size: 0.85rem; color: var(--muted); display: fle
       <div class="principle">
         <h3>Erst die Stichprobe, dann die Masse</h3>
         <p>Jede Massenänderung wird zuerst maschinell an einer Testmenge geprüft, dann ausgeführt, dann dokumentiert.</p>
-        <p class="proof">Die Maschinenzuordnung habe ich komplett neu aufgesetzt, als die Stichprobe 29 % Fehler zeigte.</p>
+        <p class="proof">Die Maschinenzuordnung habe ich komplett neu aufgesetzt, als die Stichprobe fast 30 % Fehler zeigte.</p>
       </div>
       <div class="principle">
         <h3>Schutz vor stillen Fehlern</h3>
