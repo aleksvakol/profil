@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Oleksandr Vakoliuk</title>
+<meta name="description" content="Technischer Product Owner für Datenintegration und Automatisierung im B2B-Handel.">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: a parts datasheet. Narrow reading column, spec rows with mono labels, one amber label colour for what matters. */
+:root {
+  --paper: #f2f3ee;
+  --sheet: #fbfbf8;
+  --ink: #17201c;
+  --muted: #56615b;
+  --rule: #d5d9d0;
+  --field: #2d5a4c;
+  --label: #e3a50f;
+  --label-ink: #1b1606;
+  --label-soft: #f6e7b8;
+  --ok: #2f7a4f;
+  --ok-soft: #dcefe2;
+  --proto: #6a5a9c;
+  --proto-soft: #e7e3f4;
+
+  --f-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --step--1: 0.8125rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.625rem;
+  --step-3: 2.25rem;
+  --step-4: clamp(2.5rem, 7vw, 4.25rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #101512; --sheet: #161d19; --ink: #e5eae3;
+    --muted: #9eaaa3; --rule: #2a332e; --field: #86c4ab; --label: #f0b92b;
+    --label-ink: #1b1606; --label-soft: #3a3016; --ok: #7fd09f; --ok-soft: #1d3326;
+    --proto: #b9a9ef; --proto-soft: #2a2540; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #101512; --sheet: #161d19; --ink: #e5eae3;
+  --muted: #9eaaa3; --rule: #2a332e; --field: #86c4ab; --label: #f0b92b;
+  --label-ink: #1b1606; --label-soft: #3a3016; --ok: #7fd09f; --ok-soft: #1d3326;
+  --proto: #b9a9ef; --proto-soft: #2a2540; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  padding-inline: 16px;
+  padding-block: 0 64px;
+}
+.wrap { max-width: 1040px; margin-inline: auto; }
+a { color: var(--field); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--label); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.1; margin: 0; }
+h2 { font-size: var(--step-3); font-weight: 800; font-stretch: 125%; letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); font-weight: 700; font-stretch: 112%; }
+p { margin: 0; }
+.mono { font-family: var(--f-mono); }
+.eyebrow {
+  font-family: var(--f-mono); font-size: var(--step--1); text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--muted);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 40px; align-items: end;
+  padding-block: 56px 40px; border-bottom: 2px solid var(--ink);
+}
+.hero h1 { font-size: var(--step-4); font-weight: 800; font-stretch: 125%; letter-spacing: -0.02em; margin-block: 14px 18px; }
+.role {
+  display: inline-block; background: var(--label); color: var(--label-ink);
+  font-family: var(--f-mono); font-size: var(--step--1); font-weight: 500;
+  padding: 4px 10px; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.lead { font-size: var(--step-1); max-width: 34em; line-height: 1.5; }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 22px; color: var(--muted); font-size: 0.95rem; }
+.facts span::before { content: "▪ "; color: var(--label); }
+.portrait { position: relative; max-width: 100%; }
+.portrait img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; filter: grayscale(0.15) contrast(1.02); }
+.portrait figcaption {
+  position: absolute; left: 0; bottom: 0; background: var(--sheet); color: var(--ink);
+  font-family: var(--f-mono); font-size: 0.72rem; padding: 4px 8px; letter-spacing: 0.04em;
+}
+.contact { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--ink);
+  background: transparent; color: var(--ink); font: 600 0.95rem var(--f-body);
+  padding: 9px 14px; text-decoration: none; cursor: pointer;
+}
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn:hover { background: var(--label); color: var(--label-ink); border-color: var(--label); }
+.btn .mono { font-size: 0.85rem; font-weight: 400; }
+.copied { font-family: var(--f-mono); font-size: var(--step--1); color: var(--ok); align-self: center; min-height: 1em; }
+
+/* ---------- Spec strip ---------- */
+.spec { padding-block: 34px 10px; }
+.spec-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline; margin-bottom: 14px; }
+.spec-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+.spec-cell { padding: 16px 14px 18px 0; border-bottom: 1px solid var(--rule); }
+.spec-cell + .spec-cell { padding-left: 14px; border-left: 1px solid var(--rule); }
+.num { font-family: var(--f-display); font-weight: 800; font-stretch: 112%; font-size: var(--step-2); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.num small { font-size: 0.6em; font-weight: 700; }
+.spec-cell p { font-size: 0.9rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+section.block { padding-block: 64px 0; }
+.block-head { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; margin-bottom: 30px; }
+.block-head p { color: var(--muted); max-width: 40em; margin-top: 10px; }
+
+/* ---------- Demo ---------- */
+.demo { background: var(--sheet); border: 1px solid var(--rule); padding: 26px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+.demo label { display: block; font-family: var(--f-mono); font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+.demo input {
+  width: 100%; font: 500 1.35rem var(--f-mono); padding: 12px 14px; color: var(--ink);
+  background: var(--paper); border: 1.5px solid var(--ink); border-radius: 0;
+}
+.samples { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.chip {
+  font: 0.85rem var(--f-mono); background: transparent; color: var(--ink); border: 1px dashed var(--muted);
+  padding: 4px 9px; cursor: pointer;
+}
+.chip:hover { border-style: solid; border-color: var(--ink); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.steps li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dotted var(--rule); }
+.steps .k { font-size: 0.85rem; color: var(--muted); }
+.steps .v { font-family: var(--f-mono); font-size: 1rem; overflow-wrap: anywhere; }
+.steps li.final .v { background: var(--label); color: var(--label-ink); padding: 1px 6px; justify-self: start; }
+.demo-note { grid-column: 1 / -1; font-size: 0.88rem; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 14px; }
+
+/* ---------- Projects ---------- */
+.projects { display: grid; gap: 0; border-top: 2px solid var(--ink); }
+.project { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding-block: 32px; border-bottom: 1px solid var(--rule); }
+.project-meta { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.pid { font-family: var(--f-mono); font-size: var(--step--1); color: var(--muted); }
+.pill { font-family: var(--f-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 8px; }
+.pill.live { background: var(--ok-soft); color: var(--ok); }
+.pill.done { background: var(--label-soft); color: var(--ink); }
+.pill.proto { background: var(--proto-soft); color: var(--proto); }
+.project-body { min-width: 0; display: grid; gap: 14px; max-width: 46rem; }
+.project-body h3 { font-size: var(--step-2); }
+.pbr { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 4px 16px; }
+.pbr dt { font-family: var(--f-mono); font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding-top: 3px; }
+.pbr dd { margin: 0; }
+.stack { display: flex; flex-wrap: wrap; gap: 6px; }
+.stack span { font-family: var(--f-mono); font-size: 0.78rem; border: 1px solid var(--rule); padding: 2px 7px; color: var(--muted); }
+.flow { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px; }
+.flow li { font-family: var(--f-mono); font-size: 0.8rem; background: var(--sheet); border: 1px solid var(--rule); padding: 6px 9px; position: relative; }
+.flow li:not(:last-child)::after { content: "→"; position: absolute; right: -12px; top: 50%; transform: translateY(-50%); color: var(--label); font-weight: 700; z-index: 1; }
+.flow li { margin-right: 8px; }
+.flow li.guard { border-color: var(--label); }
+.callout { border-left: 4px solid var(--label); background: var(--sheet); padding: 14px 16px; }
+.callout .pair { display: flex; flex-wrap: wrap; gap: 6px 20px; font-family: var(--f-display); font-stretch: 112%; font-weight: 700; font-size: var(--step-1); margin-bottom: 6px; }
+.callout .bad { text-decoration: line-through; text-decoration-thickness: 2px; color: var(--muted); }
+
+/* ---------- Principles ---------- */
+.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--ink); }
+.principle { padding: 22px 20px 26px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 8px; align-content: start; }
+.principle:not(:nth-child(3n+1)) { padding-left: 20px; border-left: 1px solid var(--rule); }
+.principle p { font-size: 0.97rem; }
+.principle .proof { font-size: 0.88rem; color: var(--muted); }
+
+/* ---------- Tools ---------- */
+.tools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; }
+.tool-row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 14px; padding-block: 11px; border-bottom: 1px solid var(--rule); }
+.tool-row dt { font-family: var(--f-mono); font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding-top: 3px; }
+.tool-row dd { margin: 0; }
+
+/* ---------- Timeline ---------- */
+.timeline { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.timeline li { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; padding-block: 18px; border-bottom: 1px solid var(--rule); }
+.timeline .when { font-family: var(--f-mono); font-size: 0.92rem; font-variant-numeric: tabular-nums; }
+.timeline .what { max-width: 44rem; }
+.timeline .what strong { display: block; font-family: var(--f-display); font-stretch: 112%; font-weight: 700; font-size: 1.1rem; }
+.timeline .what span { color: var(--muted); font-size: 0.97rem; }
+
+/* ---------- Start ---------- */
+.start { background: var(--ink); color: var(--paper); padding: 40px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; }
+.start h2 { color: var(--paper); }
+.start p { margin-top: 14px; max-width: 36em; }
+.start .eyebrow { color: var(--label); }
+.start ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.start li { border-bottom: 1px solid color-mix(in srgb, var(--paper) 22%, transparent); padding-bottom: 10px; }
+.start li b { display: block; font-family: var(--f-mono); font-weight: 500; font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.06em; color: var(--label); }
+.start .btn { border-color: var(--paper); color: var(--paper); }
+.start .btn.primary { background: var(--label); border-color: var(--label); color: var(--label-ink); }
+.start .btn:hover { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+footer { margin-top: 28px; font-size: 0.85rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .spec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .spec-cell, .spec-cell + .spec-cell { padding: 14px 12px 16px 0; border-left: 0; }
+  .spec-cell:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--rule); }
+  .principles { grid-template-columns: minmax(0, 1fr); }
+  .principle, .principle:not(:nth-child(3n+1)) { padding: 18px 0 20px; border-left: 0; }
+  .tools { grid-template-columns: minmax(0, 1fr); }
+  .start { grid-template-columns: minmax(0, 1fr); padding: 28px 22px; }
+}
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); padding-top: 32px; gap: 24px; }
+  .portrait { max-width: 200px; grid-row: 1; }
+  .block-head, .project, .timeline li { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .project-meta { flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .demo { grid-template-columns: minmax(0, 1fr); padding: 18px; }
+  .steps li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .pbr { grid-template-columns: minmax(0, 1fr); }
+  .pbr dd { margin-bottom: 8px; }
+  .tool-row { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  section.block { padding-top: 48px; }
+}
+@media (max-width: 440px) {
+  .spec-grid { grid-template-columns: minmax(0, 1fr); }
+  .spec-cell:nth-child(even) { padding-left: 0; border-left: 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .steps li.final .v { transition: background-color .2s; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div>
+      <span class="role">Technischer Product Owner · Datenintegration &amp; Automatisierung</span>
+      <h1>Oleksandr Vakoliuk</h1>
+      <p class="lead">Ich bringe Daten aus ERP, Preislisten und Lager dorthin, wo Menschen damit arbeiten: geprüft, nachvollziehbar und im Alltag stabil. Von der Anforderung über die Umsetzung bis zur Abnahme.</p>
+      <div class="facts">
+        <span>Mering, Bayern</span>
+        <span>Vollständig remote</span>
+        <span>B2B-Handel, E-Commerce, ERP</span>
+      </div>
+      <div class="contact">
+        <button class="btn primary" type="button" id="copy-mail" data-copy="aleksvakol@gmail.com">E-Mail <span class="mono">aleksvakol@gmail.com</span></button>
+        <a class="btn" href="https://www.linkedin.com/in/aleksandrvakoliuk" target="_blank" rel="noopener">LinkedIn</a>
+        <button class="btn" type="button" id="copy-phone" data-copy="+49 151 72457708">Telefon <span class="mono">+49 151 72457708</span></button>
+        <span class="copied" id="copied" aria-live="polite"></span>
+      </div>
+    </div>
+    <figure class="portrait" style="margin:0">
+      <img src="portrait.jpg" alt="Porträt von Oleksandr Vakoliuk" width="640" height="640">
+      <figcaption>O. VAKOLIUK · 2026</figcaption>
+    </figure>
+  </header>
+
+  <section class="spec" aria-labelledby="spec-title">
+    <div class="spec-head">
+      <span class="eyebrow" id="spec-title">Aus dem laufenden Betrieb · ALNA GmbH, Ersatzteile für Landtechnik</span>
+      <span class="eyebrow">Stand 10/2026</span>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-cell"><div class="num">1,48 <small>Mio.</small></div><p>Herstellerpreiszeilen im internen B2B-Preisportal</p></div>
+      <div class="spec-cell"><div class="num">15 <small>Min.</small></div><p>Takt der ERP-Datenübernahme, mit Prüfung vor jeder Aktualisierung</p></div>
+      <div class="spec-cell"><div class="num">9.000</div><p>Artikel in eine neue Shopstruktur mit 11 Haupt- und 35 Unterkategorien eingeordnet</p></div>
+      <div class="spec-cell"><div class="num">97,5 <small>%</small></div><p>Genauigkeit der Maschinenzuordnung nach der Überarbeitung (erster Ansatz: 29 % Fehler)</p></div>
+      <div class="spec-cell"><div class="num">240</div><p>echte Frachtrechnungen als Grundlage des Versandkostenmodells</p></div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="demo-title">
+    <div class="block-head">
+      <span class="eyebrow">Das Kernproblem</span>
+      <div>
+        <h2 id="demo-title">Eine Artikelnummer, viele Schreibweisen</h2>
+        <p>Kunden, Lieferanten und Preislisten schreiben dieselbe Nummer unterschiedlich: mit Leerzeichen, Punkten, Bindestrichen oder führenden Nullen. Ein Portal findet den Artikel nur, wenn alle Schreibweisen auf denselben Suchschlüssel führen. Probieren Sie es aus.</p>
+      </div>
+    </div>
+    <div class="demo">
+      <div>
+        <label for="pn">Artikelnummer eingeben</label>
+        <input id="pn" type="text" value="0007 352.650" autocomplete="off" spellcheck="false">
+        <div class="samples" aria-label="Beispiele">
+          <button class="chip" type="button">0007 352.650</button>
+          <button class="chip" type="button">re-504836</button>
+          <button class="chip" type="button">7352650</button>
+          <button class="chip" type="button">RE 504 836</button>
+        </div>
+      </div>
+      <ol class="steps" aria-live="polite">
+        <li><span class="k">Eingabe</span><span class="v" id="s0"></span></li>
+        <li><span class="k">Großschreibung</span><span class="v" id="s1"></span></li>
+        <li><span class="k">Ohne Trennzeichen</span><span class="v" id="s2"></span></li>
+        <li><span class="k">Ohne führende Nullen</span><span class="v" id="s3"></span></li>
+        <li class="final"><span class="k">Suchschlüssel</span><span class="v" id="s4"></span></li>
+      </ol>
+      <p class="demo-note">Vereinfachte Darstellung. Im Portal gelten zusätzlich eigene Regeln je Hersteller, Ersatznummernketten und eine unscharfe Suche; daraus entstehen rund 76.000 Suchschlüssel.</p>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="proj-title">
+    <div class="block-head">
+      <span class="eyebrow">Projekte</span>
+      <div>
+        <h2 id="proj-title">Was ich geplant und in Betrieb gebracht habe</h2>
+        <p>Als externer technischer Product Owner bei ALNA GmbH verantworte ich IT und E-Commerce: Anforderungen, Steuerung der Umsetzung mit Entwicklern und KI-Coding-Werkzeugen, Prüfung und Abnahme. Jedes Projekt ist mit seinem tatsächlichen Stand gekennzeichnet.</p>
+      </div>
+    </div>
+
+    <div class="projects">
+
+      <article class="project">
+        <div class="project-meta"><span class="pid">PRJ-01</span><span class="pill live">Im Einsatz</span></div>
+        <div class="project-body">
+          <h3>Internes B2B-Preisportal</h3>
+          <dl class="pbr">
+            <dt>Ausgangslage</dt><dd>Für einen Preis mussten Mitarbeiter Artikelnummern, Herstellerpreislisten, Alternativen und Bestand aus mehreren Quellen von Hand zusammensuchen.</dd>
+            <dt>Mein Beitrag</dt><dd>Such- und Preislogik, Normalisierung der Artikelnummern, Rollenmodell und Excel-Ausgabe konzipiert; Umsetzung gesteuert, Ergebnisse geprüft, Inbetriebnahme begleitet.</dd>
+            <dt>Ergebnis</dt><dd>Eine Suche nach beliebiger Nummer (Hersteller, Lieferant oder intern) liefert Originalpreis, bekannte Alternativen, Lagerbestand und Bilder. Preisregeln für fünf Hersteller mit jeweils eigener Mechanik und für Kundengruppen. Vier Rollen: Einkaufspreise bleiben für den Vertrieb verborgen. Stapelverarbeitung per Excel, Oberfläche auf Deutsch und Russisch, DSGVO-Löschfristen für Suchprotokolle.</dd>
+          </dl>
+          <div class="stack"><span>FastAPI</span><span>PostgreSQL</span><span>Docker</span><span>Caddy</span><span>GitHub Actions</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-meta"><span class="pid">PRJ-02</span><span class="pill live">Im Einsatz</span></div>
+        <div class="project-body">
+          <h3>ERP-Daten zuverlässig übernehmen</h3>
+          <dl class="pbr">
+            <dt>Ausgangslage</dt><dd>Das Portal braucht aktuelle Artikel- und Bestandsdaten aus JTL-Wawi. Ein abgebrochener oder halber Export darf vorhandene Daten nicht überschreiben.</dd>
+            <dt>Mein Beitrag</dt><dd>Export- und Importablauf, Zwischenablage und Prüfregeln ausgearbeitet; Fehlerfälle getestet: fehlende Daten, falsche Datentypen, auffällig kleine Dateien.</dd>
+            <dt>Ergebnis</dt><dd>Übernahme alle 15 Minuten. Die Schutzregeln entstanden aus zwei echten Vorfällen und verhindern, dass sie sich wiederholen. In die Gegenrichtung erzeugt das Portal Importdateien, die exakt den ERP-Vorlagen entsprechen.</dd>
+          </dl>
+          <ol class="flow" aria-label="Ablauf der Datenübernahme">
+            <li>JTL-Wawi</li><li>Export</li><li>SFTP</li><li class="guard">Prüfregeln</li><li>Zwischentabellen</li><li>Portal</li>
+          </ol>
+          <div class="stack"><span>JTL-Wawi</span><span>MSSQL</span><span>SFTP</span><span>Python</span><span>PostgreSQL</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-meta"><span class="pid">PRJ-03</span><span class="pill live">Im Einsatz</span></div>
+        <div class="project-body">
+          <h3>Produktfotos ohne Handarbeit</h3>
+          <dl class="pbr">
+            <dt>Ausgangslage</dt><dd>Fotos mussten dem richtigen Artikel zugeordnet, freigestellt und für Warenwirtschaft und Shop aufbereitet werden.</dd>
+            <dt>Mein Beitrag</dt><dd>Ablauf vom Handyfoto bis zum fertigen Bildsatz konzipiert und mit KI-gestützter Entwicklung umgesetzt. Die erkannte Nummer wird vor der Verarbeitung mit dem Katalog abgeglichen, damit ein Lesefehler nicht beim falschen Artikel landet.</dd>
+            <dt>Ergebnis</dt><dd>Original, freigestelltes Bild und Version mit Wasserzeichen entstehen automatisch und werden synchronisiert. Zugriff nur für freigegebene Nutzer.</dd>
+          </dl>
+          <ol class="flow" aria-label="Ablauf der Bildverarbeitung">
+            <li>Foto mit Etikett</li><li>KI liest Nummer</li><li class="guard">Abgleich Katalog</li><li>Freistellen</li><li>Wasserzeichen</li><li>3 Versionen</li>
+          </ol>
+          <div class="stack"><span>Telegram Bot API</span><span>Python</span><span>Gemini API</span><span>Syncthing</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-meta"><span class="pid">PRJ-04</span><span class="pill done">Abgeschlossen</span></div>
+        <div class="project-body">
+          <h3>Neue Shopstruktur für 9.000 Artikel</h3>
+          <dl class="pbr">
+            <dt>Ausgangslage</dt><dd>Der Shop war nach Maschinenmarken gegliedert: drei Kategorien für rund 6.000 Artikel. Wer ein Teil suchte, musste zuerst die Marke kennen.</dd>
+            <dt>Mein Beitrag</dt><dd>Struktur nach Teiletyp entworfen (11 Haupt-, 35 Unterkategorien), Marke als Filter; drei Filter definiert; Klassifikation organisiert und vor jedem Import maschinell geprüft; Weiterleitungsplan (301) vor dem Abschalten der alten Struktur.</dd>
+            <dt>Ergebnis</dt><dd>Vier Kategorieseiten nach Maschinentyp, die jahrelang leer waren, zeigen jetzt jeweils 3.000 bis 6.700 Artikel.</dd>
+          </dl>
+          <div class="callout">
+            <div class="pair"><span class="bad">29 % Fehler</span><span>→ 97,5 % Genauigkeit</span></div>
+            <p>Der erste Ansatz für das Merkmal „passt zu Maschinentyp“ fiel in der Stichprobe durch. Ursache: Die Datenquelle unterschied nicht zwischen „wird zusammen erwähnt“ und „passt nur zu“. Nach der Neuformulierung: 97,5 % Genauigkeit bei 78 % Abdeckung des Katalogs.</p>
+          </div>
+          <div class="stack"><span>WooCommerce</span><span>JTL-Connector</span><span>JTL-Ameise</span><span>CSV</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-meta"><span class="pid">PRJ-05</span><span class="pill done">Konzept übergeben</span></div>
+        <div class="project-body">
+          <h3>Versandkosten aus echten Rechnungen</h3>
+          <dl class="pbr">
+            <dt>Ausgangslage</dt><dd>Die Versandkosten im Shop beruhten auf Schätzungen.</dd>
+            <dt>Mein Beitrag</dt><dd>240 Rechnungen des Spediteurs aus einem halben Jahr und die Auftragsdaten aus dem ERP ausgewertet. Daraus ein Lastenheft für die Agentur: Tariftabellen nach Gewicht (Inland) und je Kilogramm für sieben Auslandsziele, vier Versandarten mit Regeln nach Gewicht und Maß, Grenze für kostenlosen Versand, Aufteilung schwerer Aufträge.</dd>
+            <dt>Ergebnis</dt><dd>Für Ziele ohne Tarifdaten (rund 32 % der bisherigen Aufträge) wird die Bestellung nicht blockiert, sondern manuell berechnet. Tarife liegen mit Gültigkeitsdatum in der Datenbank, die vierteljährliche Pflege braucht kein neues Release.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-meta"><span class="pid">PRJ-06</span><span class="pill proto">Eigener Prototyp</span></div>
+        <div class="project-body">
+          <h3>Von der PDF-Anfrage zum Excel-Angebot</h3>
+          <dl class="pbr">
+            <dt>Ausgangslage</dt><dd>Eine Angebotsanfrage kommt als PDF mit Artikelnummern, Mengen und Einheiten.</dd>
+            <dt>Mein Beitrag</dt><dd>Ablauf und Prüfregeln festgelegt, Umsetzung mit KI-Coding-Werkzeugen begleitet, mit synthetischen Beispielen getestet.</dd>
+            <dt>Ergebnis</dt><dd>Lauffähiger Prototyp (09/2026): Positionen werden mit einer Preisliste abgeglichen; unbekannte Artikel, Duplikate und abweichende Einheiten werden zur manuellen Prüfung markiert. Kein Kundenauftrag; Angebote werden nicht automatisch versendet.</dd>
+          </dl>
+          <ol class="flow" aria-label="Ablauf des Prototyps">
+            <li>PDF auslesen</li><li>Positionen abgleichen</li><li class="guard">Ausnahmen markieren</li><li>Excel-Entwurf</li>
+          </ol>
+          <div class="stack"><span>n8n</span><span>Python</span><span>PDF</span><span>Excel</span></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="how-title">
+    <div class="block-head">
+      <span class="eyebrow">Arbeitsweise</span>
+      <div>
+        <h2 id="how-title">Wie ich arbeite</h2>
+        <p>Jeder Punkt hier hat einen konkreten Anlass aus den Projekten oben.</p>
+      </div>
+    </div>
+    <div class="principles">
+      <div class="principle">
+        <h3>Erst die Stichprobe, dann die Masse</h3>
+        <p>Jede Massenänderung wird zuerst maschinell an einer Testmenge geprüft, dann ausgeführt, dann dokumentiert.</p>
+        <p class="proof">Die Maschinenzuordnung habe ich komplett neu aufgesetzt, als die Stichprobe 29 % Fehler zeigte.</p>
+      </div>
+      <div class="principle">
+        <h3>Schutz vor stillen Fehlern</h3>
+        <p>Ein Ablauf muss auch dann richtig reagieren, wenn die Eingangsdaten unvollständig sind.</p>
+        <p class="proof">Halbe Exporte überschreiben keine Bestände; auffällig kleine Dateien werden abgelehnt.</p>
+      </div>
+      <div class="principle">
+        <h3>Anforderungen, die man prüfen kann</h3>
+        <p>Zu jedem Block eines Lastenhefts gehört ein Testszenario, und die Aufwandsschätzung kommt vor dem Start.</p>
+        <p class="proof">Lastenheft für die Shop-Agentur in sieben Bereichen, bekannte Grenzen der Plattform vorab benannt.</p>
+      </div>
+      <div class="principle">
+        <h3>KI-gestützte Entwicklung, offen benannt</h3>
+        <p>Ein großer Teil des Codes entsteht mit KI-Coding-Werkzeugen unter meiner Führung. Architektur, Prüfregeln, Abnahme und Verantwortung für das Ergebnis liegen bei mir.</p>
+        <p class="proof">So entstehen Lösungen schnell, und ich kann jede Entscheidung erklären.</p>
+      </div>
+      <div class="principle">
+        <h3>Entscheidungen schriftlich</h3>
+        <p>Ein Statusdokument und ein Register der Architekturentscheidungen, damit nichts im Kreis diskutiert wird.</p>
+        <p class="proof">Ich stimme mich am liebsten schriftlich ab; so bleibt alles nachvollziehbar.</p>
+      </div>
+      <div class="principle">
+        <h3>Folgen mitdenken</h3>
+        <p>Bevor etwas abgeschaltet wird, frage ich, was danach fehlt.</p>
+        <p class="proof">Die alte Shopstruktur ging erst mit einem Weiterleitungsplan vom Netz, damit Suchmaschinen-Positionen erhalten bleiben.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="tools-title">
+    <div class="block-head">
+      <span class="eyebrow">Werkzeuge &amp; Branche</span>
+      <div><h2 id="tools-title">Womit ich arbeite</h2></div>
+    </div>
+    <dl class="tools">
+      <div class="tool-row"><dt>Schwerpunkte</dt><dd>Anforderungen, Prozessbeschreibung, Datenprüfung, Abnahmetests, Dokumentation</dd></div>
+      <div class="tool-row"><dt>ERP &amp; Shop</dt><dd>JTL-Wawi, JTL-Ameise, JTL-WMS, JTL-Connector, WooCommerce</dd></div>
+      <div class="tool-row"><dt>Daten</dt><dd>CSV/Excel in großen Mengen, Normalisierung von Artikelnummern, Dublettenbereinigung, Klassifikation</dd></div>
+      <div class="tool-row"><dt>Technik</dt><dd>Python, FastAPI, SQL, PostgreSQL, MSSQL (lesend), REST-APIs, SFTP</dd></div>
+      <div class="tool-row"><dt>Betrieb</dt><dd>Docker, Linux, Caddy, GitHub Actions mit Health-Check nach dem Deploy</dd></div>
+      <div class="tool-row"><dt>KI &amp; Automation</dt><dd>Gemini API (Bilderkennung), KI-Coding-Werkzeuge, n8n, Telegram Bot API</dd></div>
+      <div class="tool-row"><dt>Analyse</dt><dd>Google Search Console, GA4, Merchant Center, Google Ads (Aufgaben stellen, Daten auswerten)</dd></div>
+      <div class="tool-row"><dt>Branche</dt><dd>Ersatzteile für Landtechnik: CLAAS, John Deere, Case IH / New Holland, KRONE, AMAZONE; Ersatznummernketten, Rabatt- und Kundengruppen</dd></div>
+    </dl>
+  </section>
+
+  <section class="block" aria-labelledby="cv-title">
+    <div class="block-head">
+      <span class="eyebrow">Werdegang</span>
+      <div>
+        <h2 id="cv-title">Vom eigenen Onlinehandel zur Datenintegration</h2>
+        <p>Drei Onlineshops selbst zu betreiben hat mir gezeigt, woran der Handel im Alltag scheitert: an Daten, die nicht zusammenpassen.</p>
+      </div>
+    </div>
+    <ol class="timeline">
+      <li><span class="when">aktuell</span><div class="what"><strong>Externer technischer Product Owner, ALNA GmbH, Bayern</strong><span>IT und E-Commerce für einen B2B-Händler von Landtechnik-Ersatzteilen.</span></div></li>
+      <li><span class="when">seit 10/2023</span><div class="what"><strong>Operativer Mitarbeiter im E-Scooter-Service</strong><span>Mobilitätsdienstleister, Augsburg und Regensburg. Fahrzeugservice und selbstständige Organisation der Einsätze im Nachtbetrieb.</span></div></li>
+      <li><span class="when">2019 – 2022</span><div class="what"><strong>Selbstständig im E-Commerce, Ukraine</strong><span>Herstellung und Verkauf von Angel-, Sport- und Freizeitartikeln; Betrieb von drei Onlineshops, Kundenbetreuung, Organisation der Abläufe.</span></div></li>
+      <li><span class="when">2016 – 2018</span><div class="what"><strong>Selbstständig in der Aquakultur, Ukraine</strong><span>Zucht, Verkauf und Kundenberatung; Betreuung von Aquarien und Teichen.</span></div></li>
+      <li><span class="when">2013 – 2015</span><div class="what"><strong>Leiter der Verkaufsabteilung, Chumak, Ukraine</strong><span>Vertriebskoordination und Betreuung von Verkaufsstellen.</span></div></li>
+      <li><span class="when">2008 – 2013</span><div class="what"><strong>Nationale Agraruniversität Winnyzja</strong><span>Hochschulabschluss in Ökologie und Umweltschutz.</span></div></li>
+    </ol>
+  </section>
+
+  <section class="block" aria-labelledby="start-title">
+    <div class="start">
+      <div>
+        <span class="eyebrow">Zusammenarbeit</span>
+        <h2 id="start-title" style="margin-top:10px">So kann es beginnen</h2>
+        <p>Am besten mit einem einzelnen, klar umrissenen Ablauf: ein Datenimport mit Prüfregeln, ein wiederkehrender Report oder ein bestehender Prozess, der systematisch getestet und dokumentiert werden soll. Wir klären, welche Daten vorliegen, welches Ergebnis gebraucht wird und wie es geprüft wird. Danach lassen sich Aufwand und Preis abschätzen.</p>
+        <div class="contact">
+          <button class="btn primary" type="button" id="copy-mail-2" data-copy="aleksvakol@gmail.com">E-Mail kopieren <span class="mono">aleksvakol@gmail.com</span></button>
+          <a class="btn" href="https://www.linkedin.com/in/aleksandrvakoliuk" target="_blank" rel="noopener">LinkedIn</a>
+          <span class="copied" aria-live="polite"></span>
+        </div>
+      </div>
+      <ul>
+        <li><b>Arbeitsform</b>Vollständig remote, Abstimmung bevorzugt schriftlich</li>
+        <li><b>Verfügbarkeit</b>Rund 60 Stunden im Monat, auch einzelne Aufgaben</li>
+        <li><b>Übergabe</b>Dokumentation und Umgang mit Fehlerfällen gehören dazu</li>
+        <li><b>Sprachen</b>Ukrainisch und Russisch fließend · Deutsch B1 · Englisch Grundkenntnisse</li>
+      </ul>
+    </div>
+    <footer>
+      <span>Oleksandr Vakoliuk · Mering, Bayern</span>
+      <span>Vertrauliche Kundendaten und interne Zugänge sind nicht Teil dieser Seite.</span>
+    </footer>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var input = document.getElementById('pn');
+  var out = [0, 1, 2, 3, 4].map(function (i) { return document.getElementById('s' + i); });
+  function render() {
+    var raw = input.value;
+    var up = raw.toUpperCase();
+    var compact = up.replace(/[\s.\-\/_,]+/g, '');
+    var noZeros = compact.replace(/^0+(?=.)/, '');
+    out[0].textContent = raw || '–';
+    out[1].textContent = up || '–';
+    out[2].textContent = compact || '–';
+    out[3].textContent = noZeros === compact ? (compact ? 'keine vorhanden' : '–') : noZeros;
+    out[4].textContent = noZeros || '–';
+  }
+  input.addEventListener('input', render);
+  document.querySelectorAll('.chip').forEach(function (b) {
+    b.addEventListener('click', function () { input.value = b.textContent; render(); input.focus(); });
+  });
+  render();
+
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    var note = btn.parentNode.querySelector('.copied');
+    var timer;
+    function say(msg) { if (!note) return; note.textContent = msg; clearTimeout(timer); timer = setTimeout(function () { note.textContent = ''; }, 2500); }
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      var done = function () { say('Kopiert: ' + text); };
+      var fallback = function () {
+        var span = btn.querySelector('.mono');
+        if (span) { var r = document.createRange(); r.selectNodeContents(span); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+        say('Markiert – bitte mit Strg+C kopieren');
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+        else fallback();
+      } catch (e) { fallback(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
